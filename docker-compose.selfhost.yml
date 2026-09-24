@@ -124,7 +124,7 @@ services:
             meilisearch:
                 condition: service_healthy
         volumes:
-            - static_volume:/app/staticfiles_build
+            - static_volume:/app/static
             - ./media:/app/media
             - ./certs:/app/certs:ro
         ports:

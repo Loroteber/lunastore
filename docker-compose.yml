@@ -122,7 +122,7 @@ services:
             meilisearch:
                 condition: service_healthy
         volumes:
-            - static_volume:/app/staticfiles_build
+            - static_volume:/app/static
             - /opt/lunastore/media:/app/media
             - /opt/lunastore/certs:/app/certs:ro
         command: >

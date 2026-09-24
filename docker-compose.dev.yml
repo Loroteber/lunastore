@@ -107,7 +107,7 @@ services:
     admin:
         build: .
         container_name: lunastore_admin
-        command: python manage.py runserver 0.0.0.0:8088
+        command: python manage.py runserver 0.0.0.0:8088 --nostatic
         environment:
             DJANGO_ROOT_URLCONF: lunastore.urls_private
         ports:
