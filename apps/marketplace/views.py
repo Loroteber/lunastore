@@ -719,6 +719,47 @@ def report_problem(request):
     }
     return render(request, "report_problem.html", context)
 
+@login_required
+@require_modern_browser
+@ratelimit(key='ip', rate='20/1m', block=True)
+def distribution_create(request, app_id):
+    app_obj = get_object_or_404(Application, id=app_id)
+
+    if app_obj.user != request.user:
+        if not app_obj.allow_community_distributions:
+            raise PermissionDenied("COMMUNITY_DISTRIBUTIONS_ARE_NOT_ALLOWED")
+    else:
+        return redirect(reverse("manage_distributions") +
+                        "?id=" + str(app_obj.id))
+
+    form = DistributionCreateForm(request.POST or None, request.FILES or None)
+
+    if request.method == "POST" and form.is_valid():
+        distribution_request = form.save(commit=False)
+        distribution_request.app = app_obj
+        distribution_request.user = request.user
+        distribution_request.status = "pending"
+        distribution_request.save()
+
+        messages.success(request, _("PAGE_MANAGEDIST_CREATE_SUCCESS"))
+        return redirect(reverse("download") +
+                        "?id=" + str(app_obj.id))
+
+    elif request.method == "POST" and not form.is_valid():
+        for field, errors in form.errors.items():
+            for error in errors:
+                messages.error(request, error)
+                
+    return render(
+        request,
+        "distribution_form.html",
+        {
+            "form": form,
+            "app": app_obj,
+            "app_id": app_obj.id,
+            "is_edit_page": False,
+        },
+    )
 
 @login_required
 @require_modern_browser

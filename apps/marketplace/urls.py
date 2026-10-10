@@ -30,6 +30,11 @@ urlpatterns = [
         views.distribution_delete,
         name="distribution_delete",
     ),
+    path(
+        "distribution_create.php/<int:app_id>/",
+        views.distribution_create,
+        name="distribution_create",
+    ),
     path("get_dist_file/<int:dist_pk>/", views.get_file_action, name="download_action"),
     path("rate_app.php", views.rate_app, name="rate_app"),
     path("delete_review.php", views.delete_review, name="delete_review"),

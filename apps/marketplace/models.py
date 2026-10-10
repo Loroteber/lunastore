@@ -153,6 +153,8 @@ class BaseApplicationInfo(SafeDeleteModel):
         default=False, verbose_name="Приложение приватное?")
     allow_reviews = models.BooleanField(
         default=True, verbose_name="Разрешить отзывы")
+    allow_community_distributions = models.BooleanField(
+        default=False, verbose_name="Разрешить сторонние дистрибуции")
 
     class Meta:
         abstract = True

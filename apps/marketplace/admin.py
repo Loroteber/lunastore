@@ -761,7 +761,8 @@ class ApplicationAdmin(SafeDeleteAdmin, TabbedTranslationAdmin):
                     "price",
                     "is_demo",
                     "is_under_dmca",
-                    "is_private"
+                    "is_private",
+                    "allow_community_distributions"
                 )
             },
         ),

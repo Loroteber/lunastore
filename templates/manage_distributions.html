@@ -80,6 +80,10 @@
                             <li>
                                 {% trans "PAGE_ADMIN_APP_DIST_VERSION_LABEL" %} <strong>{{ req.version }}</strong>
                                 {% trans "PAGE_ADMIN_APP_DIST_PENDING_CREATE" %}
+                                {% if app.allow_community_distributions %}
+                                <br>
+                                <i>{% trans "PAGE_ADDAPP_CHECKINFO_AUTHOR_1" %} <a href="/user?id={{ req.user.id }}">{{ req.user }}</a></i>
+                                {% endif %}
                             </li>
                         {% endfor %}
                         {% for edit in pending_edits %}

@@ -271,7 +271,8 @@ class AppCreateForm(forms.ModelForm, CDNTokenValidationMixin):
             "is_demo",
             "price",
             "is_private",
-            "allow_reviews"]
+            "allow_reviews",
+            "allow_community_distributions"]
         fields = get_translated_fields_list(_base_names)
         widgets = get_translated_widgets_dict(
             {
@@ -315,6 +316,9 @@ class AppCreateForm(forms.ModelForm, CDNTokenValidationMixin):
                     attrs={
                         "class": "checkbox-element"}),
                 "allow_reviews": forms.CheckboxInput(
+                    attrs={
+                        "class": "checkbox-element"}),
+                "allow_community_distributions": forms.CheckboxInput(
                     attrs={
                         "class": "checkbox-element"})})
 
