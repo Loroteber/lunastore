@@ -719,6 +719,7 @@ def report_problem(request):
     }
     return render(request, "report_problem.html", context)
 
+
 @developer_required
 @require_modern_browser
 @ratelimit(key='ip', rate='20/1m', block=True)
@@ -749,7 +750,7 @@ def distribution_create(request, app_id):
         for field, errors in form.errors.items():
             for error in errors:
                 messages.error(request, error)
-                
+
     return render(
         request,
         "distribution_form.html",
@@ -760,6 +761,7 @@ def distribution_create(request, app_id):
             "is_edit_page": False,
         },
     )
+
 
 @login_required
 @require_modern_browser
