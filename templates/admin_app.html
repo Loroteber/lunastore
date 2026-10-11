@@ -300,7 +300,10 @@
                     <label>
                         {{ form.allow_community_distributions }}
                         <span class="checkbox-element__label">
-                            <span>{% trans "SET_APP_ALLOW_COMMUNITY_DISTRIBUTIONS" %}</span>
+                            <span>{% trans "SET_APP_ALLOW_COMMUNITY_DISTRIBUTIONS" %}</span>                      
+                            <img src="{% static './img/info_micro.png' %}"
+                                    class="checkbox-element__info-icon"
+                                    title="{% trans 'SET_APP_ALLOW_COMMUNITY_DISTRIBUTIONS_TOOLTIP' %}" />
                         </span>
                     </label>
                 </div>

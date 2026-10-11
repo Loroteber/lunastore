@@ -877,6 +877,7 @@ class AppCreateRequestsAdmin(SafeDeleteAdmin, TabbedTranslationAdmin):
         "price",
         "is_demo",
         "is_private",
+        "allow_community_distributions",
         "screenshots",
         "developer_site",
     )
@@ -983,6 +984,7 @@ class AppCreateRequestsAdmin(SafeDeleteAdmin, TabbedTranslationAdmin):
                               "price",
                               "is_demo",
                               "is_private",
+                              "allow_community_distributions",
                               "icon_path",
                               "screenshots",
                               "developer_site",
@@ -1030,6 +1032,7 @@ class AppEditRequestsAdmin(SafeDeleteAdmin, TabbedTranslationAdmin):
         "price",
         "is_demo",
         "is_private",
+        "allow_community_distributions",
         "display_screenshots",
         "developer_site",
     )
@@ -1148,6 +1151,7 @@ class AppEditRequestsAdmin(SafeDeleteAdmin, TabbedTranslationAdmin):
                               "price",
                               "is_demo",
                               "is_private",
+                              "allow_community_distributions",
                               "icon_path",
                               "screenshots",
                               "developer_site",

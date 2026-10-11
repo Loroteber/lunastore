@@ -719,7 +719,7 @@ def report_problem(request):
     }
     return render(request, "report_problem.html", context)
 
-@login_required
+@developer_required
 @require_modern_browser
 @ratelimit(key='ip', rate='20/1m', block=True)
 def distribution_create(request, app_id):

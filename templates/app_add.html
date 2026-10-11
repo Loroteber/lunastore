@@ -411,6 +411,10 @@
                             {{ form.allow_community_distributions }}
                             <span class="checkbox-element__label">
                                 <span>{% trans "SET_APP_ALLOW_COMMUNITY_DISTRIBUTIONS" %}</span>
+                                {% trans "SET_APP_ALLOW_COMMUNITY_DISTRIBUTIONS_TOOLTIP" as tooltip %}
+                                <img src="{% static './img/info_micro.png' %}"
+                                     class="checkbox-element__info-icon"
+                                     title="{{ tooltip }}" />
                             </span>
                         </label>
 

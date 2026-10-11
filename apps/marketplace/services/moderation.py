@@ -175,7 +175,8 @@ def approve_app_create_request(req, actor=None, auto=False):
         developer_site=req.developer_site,
         original_author=req.original_author,
         is_demo=req.is_demo,
-        is_private=req.is_private
+        is_private=req.is_private,
+        allow_community_distributions=req.allow_community_distributions
     )
     _copy_app_translations(req, app)
 
@@ -223,6 +224,7 @@ def approve_app_edit_request(req, actor=None, auto=False):
     app.is_demo = req.is_demo
     app.developer_site = req.developer_site
     app.is_private = req.is_private
+    app.allow_community_distributions = req.allow_community_distributions
 
     if req.icon_path:
         app.icon_id = req.icon_id
